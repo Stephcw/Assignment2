@@ -151,16 +151,17 @@ namespace UnityEngine.XR.Hands.Samples.GestureSample
             }
         }
 
-        void Awake()
-        {
+void Awake()
+    {
+        if (m_Background != null)
             m_BackgroundDefaultColor = m_Background.color;
 
-            if (m_Highlight)
-            {
-                m_Highlight.enabled = false;
-                m_Highlight.gameObject.SetActive(true);
-            }
+        if (m_Highlight)
+        {
+            m_Highlight.enabled = false;
+            m_Highlight.gameObject.SetActive(true);
         }
+    }
 
         void OnEnable()
         {
@@ -192,30 +193,37 @@ namespace UnityEngine.XR.Hands.Samples.GestureSample
             {
                 m_PerformedTriggered = false;
                 m_GestureEnded?.Invoke();
-                m_Background.color = m_BackgroundDefaultColor;
+
+                if (m_Background != null)
+                    m_Background.color = m_BackgroundDefaultColor;
             }
 
             m_WasDetected = detected;
 
-            if (!m_PerformedTriggered && detected)
+        if (!m_PerformedTriggered && detected)
+        {
+            var holdTimer = Time.timeSinceLevelLoad - m_HoldStartTime;
+            if (holdTimer > m_MinimumHoldTime)
             {
-                var holdTimer = Time.timeSinceLevelLoad - m_HoldStartTime;
-                if (holdTimer > m_MinimumHoldTime)
-                {
-                    m_GesturePerformed?.Invoke();
-                    m_PerformedTriggered = true;
+                m_GesturePerformed?.Invoke();
+                m_PerformedTriggered = true;
+
+                if (m_Background != null)
                     m_Background.color = m_BackgroundHighlightColor;
 
-                    if (m_Highlight)
-                        m_Highlight.enabled = true;
+                if (m_Highlight != null)
+                    m_Highlight.enabled = true;
 
+                if (m_StaticGestures != null)
+                {
                     foreach (var gesture in m_StaticGestures)
                     {
-                        if (gesture != this)
+                        if (gesture != null && gesture != this)
                             gesture.highlightVisible = false;
                     }
                 }
             }
+        }
 
             m_TimeOfLastConditionCheck = Time.timeSinceLevelLoad;
         }
