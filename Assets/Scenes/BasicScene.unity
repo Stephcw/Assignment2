@@ -1161,7 +1161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1172662380
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1602,7 +1602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1233111214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2016,7 +2016,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1446753656
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2256,6 +2256,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1474067340}
+  - component: {fileID: 1474067341}
+  - component: {fileID: 1474067342}
   m_Layer: 0
   m_Name: TrialManager
   m_TagString: Untagged
@@ -2278,6 +2280,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1474067341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474067339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9507180252e4daab4fee30b5c76ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrialLoader
+  trials: []
+--- !u!114 &1474067342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474067339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1a246d120894ebb915e6067c6241fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrialRunner
+  loader: {fileID: 1474067341}
+  targetPrefab: {fileID: 1816128116}
 --- !u!1 &1527350416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2491,7 +2520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1600255737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3063,6 +3092,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717056565}
   m_CullTransparentMesh: 1
+--- !u!1 &1816128116 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 61838221748334871, guid: 0ce1f683f621b430eaadb9c01e9ff9af, type: 3}
+  m_PrefabInstance: {fileID: 8935657740837842897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1868044211
 GameObject:
   m_ObjectHideFlags: 0
