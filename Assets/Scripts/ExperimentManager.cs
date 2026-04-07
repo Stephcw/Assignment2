@@ -12,7 +12,7 @@ public class ExperimentManager : MonoBehaviour
 
     void Start()
     {
-        filePath = Application.dataPath + "/results.csv";
+        filePath = Application.dataPath + "/Chick-Mate_OutputFile.csv";
         File.WriteAllText(filePath, "Trial,Time\n");
 
         SpawnTarget();

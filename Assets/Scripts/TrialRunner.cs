@@ -6,6 +6,7 @@ public class TrialRunner : MonoBehaviour
     public TrialLoader loader;
     public GameObject targetPrefab;
     public Transform headTransform;
+    private bool waitingForSelection = false;
 
     [Header("UI")]
     public UIManager ui;
@@ -22,7 +23,7 @@ public class TrialRunner : MonoBehaviour
 
     void Start()
     {
-        filePath = Path.Combine(Application.dataPath, "results.csv");
+        filePath = Path.Combine(Application.dataPath, "Chick-Mate_OutputFile.csv");
 
         if (!File.Exists(filePath))
         {
@@ -36,6 +37,7 @@ public class TrialRunner : MonoBehaviour
 
     public void SpawnNext()
     {
+        waitingForSelection = true;
         if (loader == null || loader.trials.Count == 0)
         {
             Debug.LogError("No trials loaded.");
@@ -73,7 +75,7 @@ public class TrialRunner : MonoBehaviour
         {
             ui.UpdateTrial(t.trial);
             ui.UpdateMethod(t.method);
-            ui.ShowResult(false);
+            ui.ClearResult();
 
         }
 
@@ -118,6 +120,7 @@ public class TrialRunner : MonoBehaviour
 
     public void CompleteCurrentTrial()
     {
+        waitingForSelection = false;
         if (index >= loader.trials.Count)
             return;
 
@@ -146,4 +149,42 @@ public class TrialRunner : MonoBehaviour
         // small delay so user sees HIT text
         Invoke(nameof(SpawnNext), 1.0f);
     }
+
+  void Update()
+{
+    if (!waitingForSelection) return;
+
+    if (Input.GetMouseButtonDown(0))
+    {
+        // Raycast from camera to mouse position
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            if (hit.collider.gameObject == currentTarget)
+            {
+                // Hit
+                CompleteCurrentTrial();
+            }
+            else
+            {
+                // Miss
+                ui?.ShowResult(false);
+            }
+        }
+        else
+        {
+            // Miss (clicked empty space)
+            ui?.ShowResult(false);
+        }
+    }
+}
+
+public void OnClickMiss()
+{
+    if (waitingForSelection)
+    {
+        ui?.ShowResult(false);
+    }
+}
+
 }
