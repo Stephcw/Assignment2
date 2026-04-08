@@ -40,8 +40,8 @@ public class UIManager : MonoBehaviour
     }
 
     public void ClearResult()
-{
+    {
     resultText.text = "Result: -";
     resultText.color = Color.white;
-}
+    }
 }

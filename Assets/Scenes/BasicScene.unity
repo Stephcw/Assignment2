@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &92094720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6355494128053973299, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+  m_PrefabInstance: {fileID: 276814761}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &276814761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -254,9 +259,21 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 657184243640684908, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2089928293}
+    - targetCorrespondingSourceObject: {fileID: 657184243640684908, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2089928301}
     - targetCorrespondingSourceObject: {fileID: 657184242222895507, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1657721005}
+    - targetCorrespondingSourceObject: {fileID: 657184242222895507, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1657721013}
+    - targetCorrespondingSourceObject: {fileID: 6355494128053973299, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 618210018}
+    - targetCorrespondingSourceObject: {fileID: 1800725127586568702, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1323041782}
   m_SourcePrefab: {fileID: 100100000, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
 --- !u!1 &299639867
 GameObject:
@@ -1386,6 +1403,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5878492368827077393, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
   m_PrefabInstance: {fileID: 276814761}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &618210018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92094720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b0a721e31329c4a90e81a57997cc7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HandPinchMissDetector
+  runner: {fileID: 1474067342}
+  selectAction: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &669707688
 GameObject:
   m_ObjectHideFlags: 0
@@ -2048,6 +2079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ad5977c408a4e29af341dbb25e6ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PinchInteractor
+  experimentManager: {fileID: 0}
 --- !u!4 &705857411 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 657184242118504721, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
@@ -2117,6 +2149,17 @@ MonoBehaviour:
   m_TrackingChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &753491092 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8227192243087186103, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+  m_PrefabInstance: {fileID: 276814761}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a07ef133a37d140a87cdf1f1c75fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &756192406
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,6 +2206,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &801393361 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1800725127586568702, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+  m_PrefabInstance: {fileID: 276814761}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &959534150
 GameObject:
   m_ObjectHideFlags: 0
@@ -3066,6 +3114,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6311120899289156754, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
   m_PrefabInstance: {fileID: 276814761}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1323041782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801393361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b0a721e31329c4a90e81a57997cc7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HandPinchMissDetector
+  runner: {fileID: 1474067342}
+  selectAction: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &1446753655
 GameObject:
   m_ObjectHideFlags: 0
@@ -3395,6 +3457,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExperimentManager
   spherePrefab: {fileID: 0}
+  startTime: 0
+  trialIndex: 0
+  filePath: 
 --- !u!1 &1527350416
 GameObject:
   m_ObjectHideFlags: 0
@@ -3979,6 +4044,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1657721013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657720997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd6c1ae4fd2a1c46a78e8ae843a5c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RayMissDetector
+  runner: {fileID: 1474067342}
+  interactor: {fileID: 1935045896}
+  selectAction: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &1665814777
 GameObject:
   m_ObjectHideFlags: 0
@@ -4125,6 +4205,17 @@ MonoBehaviour:
   m_StaticGestures:
   - {fileID: 1868044213}
   m_Highlight: {fileID: 0}
+--- !u!114 &1935045896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1386082259481429544, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+  m_PrefabInstance: {fileID: 276814761}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a07ef133a37d140a87cdf1f1c75fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2089928285 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 657184243640684908, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
@@ -4157,6 +4248,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2089928301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089928285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd6c1ae4fd2a1c46a78e8ae843a5c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RayMissDetector
+  runner: {fileID: 1474067342}
+  interactor: {fileID: 753491092}
+  selectAction: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &2092139007
 GameObject:
   m_ObjectHideFlags: 0

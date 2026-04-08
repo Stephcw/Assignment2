@@ -1,0 +1,17 @@
+Trial,Method,Distance,Size,Direction,Repetition,Time,ErrorRate
+1,Ray,0.5,0.05,Center,1,2.786,0.00
+2,Ray,1,0.05,Left,1,6.754,90.00
+3,Ray,0.5,0.15,Right,1,0.835,0.00
+4,Ray,1,0.15,Up,1,1.322,0.00
+5,Ray,0.5,0.05,Center,2,0.821,0.00
+6,Ray,1,0.05,Left,2,0.738,0.00
+7,Ray,0.5,0.15,Right,2,0.668,0.00
+8,Ray,1,0.15,Up,2,0.474,0.00
+9,Pinch,0.5,0.05,Center,1,6.041,50.00
+10,Pinch,1,0.05,Left,1,4.692,80.00
+11,Pinch,0.5,0.15,Right,1,2.353,50.00
+12,Pinch,1,0.15,Up,1,1.281,50.00
+13,Pinch,0.5,0.05,Center,2,1.267,0.00
+14,Pinch,1,0.05,Left,2,4.079,80.00
+15,Pinch,0.5,0.15,Right,2,0.696,0.00
+16,Pinch,1,0.15,Up,2,1.197,50.00
