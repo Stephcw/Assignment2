@@ -20,13 +20,64 @@ public class TrialRunner : MonoBehaviour
     private string filePath;
     private float startTime;
 
+    private int missesThisTrial = 0;
+    private int totalMisses = 0;
+    private bool trialResolved = false;
+
+    private int selectionsThisTrial = 0;
+
+    public void RegisterHit()
+    {
+        if (trialResolved)
+            return;
+
+        trialResolved = true;
+        selectionsThisTrial++;
+
+        TrialData t = loader.trials[index];
+        float movementTime = Time.time - startTime;
+
+        float errorRate = ((float)missesThisTrial / selectionsThisTrial) * 100f;
+        string line = $"{t.trial},{t.method},{t.distance},{t.size},{t.direction},{t.repetition},{movementTime:F3},{errorRate:F2}\n";
+        File.AppendAllText(filePath, line);
+
+        Debug.Log($"HIT on trial {t.trial} | MT={movementTime:F3}s | Misses={missesThisTrial}");
+
+        if (ui != null)
+            ui.ShowResult(true);
+
+        if (currentTarget != null)
+        {
+            Destroy(currentTarget);
+            currentTarget = null;
+        }
+
+        index++;
+
+        Invoke(nameof(SpawnNext), 1.0f);
+    }
+
+    public void RegisterMiss()
+    {
+        if (trialResolved)
+            return;
+
+        selectionsThisTrial++;
+        missesThisTrial++;
+        totalMisses++;
+
+        Debug.Log($"MISS | Misses={missesThisTrial} | Selections={selectionsThisTrial}");
+
+        ui.ShowResult(false);
+    }
+
     void Start()
     {
-        filePath = Path.Combine(Application.dataPath, "results.csv");
+        filePath = Path.Combine(Application.dataPath, "ChickMate_OutputFile.csv");
 
         if (!File.Exists(filePath))
         {
-            File.WriteAllText(filePath, "Trial,Method,Distance,Size,Direction,Repetition,Time\n");
+            File.WriteAllText(filePath, "Trial,Method,Distance,Size,Direction,Repetition,Time,ErrorRate\n");
         }
 
         Debug.Log("CSV path: " + filePath);
@@ -36,6 +87,10 @@ public class TrialRunner : MonoBehaviour
 
     public void SpawnNext()
     {
+        trialResolved = false;
+        missesThisTrial = 0;
+        selectionsThisTrial = 0;
+
         if (loader == null || loader.trials.Count == 0)
         {
             Debug.LogError("No trials loaded.");
@@ -68,13 +123,11 @@ public class TrialRunner : MonoBehaviour
             tt.Setup(this, t);
         }
 
-        // ✅ UPDATE UI HERE
         if (ui != null)
         {
             ui.UpdateTrial(t.trial);
             ui.UpdateMethod(t.method);
-            ui.ShowResult(false);
-
+            ui.ClearResult();
         }
 
         startTime = Time.time;
