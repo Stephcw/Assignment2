@@ -26,6 +26,20 @@ public class TrialRunner : MonoBehaviour
 
     private int selectionsThisTrial = 0;
 
+    void Start()
+    {
+        filePath = Path.Combine(Application.dataPath, "ChickMate_OutputFile.csv");
+
+        if (!File.Exists(filePath))
+        {
+            File.WriteAllText(filePath, "Trial,Method,Distance,Size,Direction,Repetition,Time,ErrorRate\n");
+        }
+
+        Debug.Log("CSV path: " + filePath);
+
+        SpawnNext();
+    }
+
     public void RegisterHit()
     {
         if (trialResolved)
@@ -69,20 +83,6 @@ public class TrialRunner : MonoBehaviour
         Debug.Log($"MISS | Misses={missesThisTrial} | Selections={selectionsThisTrial}");
 
         ui.ShowResult(false);
-    }
-
-    void Start()
-    {
-        filePath = Path.Combine(Application.dataPath, "ChickMate_OutputFile.csv");
-
-        if (!File.Exists(filePath))
-        {
-            File.WriteAllText(filePath, "Trial,Method,Distance,Size,Direction,Repetition,Time,ErrorRate\n");
-        }
-
-        Debug.Log("CSV path: " + filePath);
-
-        SpawnNext();
     }
 
     public void SpawnNext()
